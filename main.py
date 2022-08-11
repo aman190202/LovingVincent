@@ -13,8 +13,8 @@ save_as= input("Enter the location of converted file ( example : callmeby.mp4 ) 
 
 cam = cv2.VideoCapture(location) 
 try:
-	if not os.path.exists('data'):
-		os.makedirs('data')
+	if not os.path.exists('tmp'):
+		os.makedirs('tmp')
 except OSError:
 	print ('Error: Creating directory of data')
 currentframe = 0
@@ -22,7 +22,7 @@ currentframe = 0
 while(True):
 	ret,frame = cam.read()
 	if ret:
-		name = 'data/'+ str(currentframe) + '.jpg'
+		name = 'tmp/'+ str(currentframe) + '.jpg'
 		cv2.imwrite(name, frame)
 		currentframe += 1
 	else:
@@ -70,7 +70,7 @@ style_image = tf.nn.avg_pool(style_image, ksize=[3,3], strides=[1,1], padding='S
 hub_handle = 'https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2'
 hub_module = hub.load(hub_handle)
 import os
-directory = 'data'
+directory = 'tmp'
 for filename in sorted(os.listdir(directory)):
     f = os.path.join(directory, filename)
     # checking if it is a file
@@ -81,9 +81,9 @@ for filename in sorted(os.listdir(directory)):
         save_n([stylized_image],f)
 
 img_array = []
-dir_len=len([name for name in os.listdir('data') if os.path.isfile(os.path.join('data', name))])
+dir_len=len([name for name in os.listdir('tmp') if os.path.isfile(os.path.join('data', name))])
 for i in range(0,dir_len):
-    img = cv2.imread('data/'+str(i)+'.jpg')
+    img = cv2.imread('tmp/'+str(i)+'.jpg')
     height, width, layers = img.shape
     size = (width,height)
     img_array.append(img)
