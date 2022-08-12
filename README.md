@@ -32,8 +32,18 @@ Then, the program employs the use of a Neural Style Transfer Model. With a style
 ## How to run
 
 1. Create a virtual environment
-2. pip install -r requirements.txt
-3. python main.py
+```
+$ virtualenv env
+$ source env/bin/activate
+```
+2. Install the required files
+```
+pip install -r requirements.txt
+```
+3. Run the main file
+```
+python main.py
+```
 4. Enter the video directory, the style image directory and the location where the resultant is to be  stored.
 
 
