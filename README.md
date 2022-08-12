@@ -38,11 +38,11 @@ $ source env/bin/activate
 ```
 2. Install the required files
 ```
-pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 3. Run the main file
 ```
-python main.py
+$ python main.py
 ```
 4. Enter the video directory, the style image directory and the location where the resultant is to be  stored.
 
