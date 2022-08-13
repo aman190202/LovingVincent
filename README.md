@@ -36,8 +36,10 @@ Then, the program employs the use of a Neural Style Transfer Model. With a style
 $ virtualenv env
 $ source env/bin/activate
 ```
-2. Install the required files
+2. Install the required files ( Change tensorflow-macos to tensorflow for Windows/Linux & add tensorflow-metal to add GPU Support)
 ```
+$ git clone https://github.com/aman190202/LovingVincent
+$ cd LovingVincet
 $ pip install -r requirements.txt
 ```
 3. Run the main file
